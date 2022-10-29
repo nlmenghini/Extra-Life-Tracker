@@ -1,5 +1,15 @@
 #tracking-container {
 	opacity: 1;
+	background: none;
+	border: none;
+}
+
+#header{
+	background: none;
+	font-family: "New_Airport_Dot_3", "Gilroy-SemiBold", arial, sans-serif;
+	font-size: 1.5em;
+	color: white;
+	letter-spacing: .05em;
 }
 
 #tracking-container.animate {
@@ -23,14 +33,34 @@
 }
 
 #donation {
-	font-size: 1em;
-	font-weight: bold;
 	line-height: 1.2em;
+	font-family: "New_Airport_Dot_2", "Gilroy-medium", arial, sans-serif;
+	text-transform: uppercase;
+	font-size: 2.0em;
+	color: white;
+	letter-spacing: .05em;
 }
 
 .donor-separator {
+	position: relative;
+    top: -0.05em;
+	font-size: .75em;
+	line-height: 1.2em;
 	display: inline-block;
-	margin-right: 5px;
+	margin:0 10px;
+	animation: blink-animation 1s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+	to {
+		visibility: hidden;
+	}
+}
+@-webkit-keyframes blink-animation {
+	to {
+		visibility: hidden;
+	}
 }
 
 .animate {

@@ -1,0 +1,47 @@
+#tracking-container {
+	opacity: 1;
+	background: none;
+	border: none;
+	line-height: normal;
+}
+
+#page-header{
+	background: none;
+	font-family: "New_Airport_Dot_4", "Gilroy-SemiBold", arial, sans-serif;
+	font-size: 3.0em;
+	color: white;
+	letter-spacing: .05em;
+}
+
+#label{
+	font-family: "New_Airport_Dot_2", "Gilroy-SemiBold", arial, sans-serif;
+}
+
+#connected-id {
+	font-family: "New_Airport_Dot_2", "Gilroy-medium", arial, sans-serif;
+	font-size: 1.0em;
+	color: white;
+	letter-spacing: .05em;
+}
+
+.donor-separator {
+	position: relative;
+    top: -0.05em;
+	font-size: .75em;
+	line-height: 1.2em;
+	display: inline-block;
+	margin:0 10px;
+	animation: blink-animation 1s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+	to {
+		visibility: hidden;
+	}
+}
+@-webkit-keyframes blink-animation {
+	to {
+		visibility: hidden;
+	}
+}

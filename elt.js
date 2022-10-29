@@ -3,7 +3,7 @@ const currencyOptions = {
 	precision: 2,
 	separator: ',',
 };
-const baseURL = "https://www.extra-life.org/api/";
+const baseURL = "https://extralife.donordrive.com/api/";
 
 function createApiActionFor(fuseaction){
 	return function(data, callback) {
