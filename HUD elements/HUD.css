@@ -8,9 +8,9 @@
 #page-header{
 	background: none;
 	font-family: "New_Airport_Dot_4", "Gilroy-SemiBold", arial, sans-serif;
-	font-size: 3.0em;
+	font-size: 2.0em;
 	color: white;
-	letter-spacing: .05em;
+	letter-spacing: .15em;
 }
 
 #label{
@@ -21,7 +21,7 @@
 	font-family: "New_Airport_Dot_2", "Gilroy-medium", arial, sans-serif;
 	font-size: 1.0em;
 	color: white;
-	letter-spacing: .05em;
+	letter-spacing: .15em;
 }
 
 .donor-separator {
@@ -45,3 +45,10 @@
 		visibility: hidden;
 	}
 }
+
+svg {
+	filter: drop-shadow(3px 0px 5px rgb(255 255 255 / 0.5));
+	fill: white;
+}
+
+

@@ -4,19 +4,49 @@
 	opacity: 1;
 	background: none;
 	border: none;
+	text-align: right;
 }
 
 #header{
 	background: none;
-	font-family: "New_Airport_Dot_3", "Gilroy-SemiBold", arial, sans-serif;
-	font-size: 1.5em;
+	font-family: "New_Airport_Dot_2", "Gilroy-SemiBold", arial, sans-serif;
+	font-size: 1.0em;
 	color: white;
-	letter-spacing: .05em;
+	letter-spacing: .15em;
+	display: inline;
+	position: unset;
 }
 
-#swear-amount {
+#swear-amount, #clock, #entry-number {
 	font-family: "New_Airport_Dot_2", "Gilroy-medium", arial, sans-serif;
-	font-size: 2.0em;
+	font-size: 1.0em;
 	color: white;
-	letter-spacing: .05em;
+	letter-spacing: .15em;
+}
+
+.clock, .separator {
+    font-family: "New_Airport_Dot_2", "Gilroy-medium", arial, sans-serif;
+	font-size: 1.0em;
+	color: white;
+	letter-spacing: .15em;   
+}
+
+.colon {
+	color: white;
+	font-size: 0.75em;
+	letter-spacing: .15em;
+	font-family: "New_Airport_Dot_5", "Gilroy-medium", arial, sans-serif;
+	animation: blink-animation 1s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+	to {
+		visibility: hidden;
+	}
+}
+@-webkit-keyframes blink-animation {
+	to {
+		visibility: hidden;
+	}
 }

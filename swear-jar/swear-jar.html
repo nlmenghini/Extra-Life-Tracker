@@ -7,9 +7,21 @@
 	</head>
 
 	<body>
-		<div id="tracking-container" class="elt">
-			<span id="header" class="glow">SWEAR JAR</span>
-			<span id="swear-amount" class="glow"></span>
+		<div id="tracking-container" class="elt glow">
+			<span id="header">TIME</span>
+			<span id="hours" class="clock" onload="showTime()"></span>
+			<span class="colon">:</span>
+			<span id="mins" class="clock" onload="showTime()"></span>
+		</div>
+		<div id="tracking-container" class="elt glow">
+			<span id="header">ENTRY</span>
+			<span class="separator">></span>
+			<span id="entry-number">MENGHINI #9</span>
+		</div>
+		<div id="tracking-container" class="elt glow">
+			<span id="header">SWEAR JAR</span>
+			<span class="separator">></span>
+			<span id="swear-amount"> $25</span>
 		</div>
 	</body>
 	
@@ -25,23 +37,31 @@
 		  xhttp.send();
 	</script>
 	<script>
-		function readTextFile(file)
-			{
-				var rawFile = new XMLHttpRequest();
-				rawFile.open("GET", "C:/Users/Saint/Documents/Auto Hotkey/Swear jar counter/Swear Jar.txt", false);
-				rawFile.onreadystatechange = function ()
-				{
-					if(rawFile.readyState === 4)
-					{
-						if(rawFile.status === 200 || rawFile.status == 0)
-						{
-							var allText = rawFile.responseText;
-							alert(allText);
-						}
-					}
-				}
-				rawFile.send(null);
+		function showTime(){
+			var date = new Date();
+			var h = date.getHours(); // 0 - 23
+			var m = date.getMinutes(); // 0 - 59
+			var session = "AM";
+			var separator = '<span class="separator">'+'<p>:</p>' +'</span>';
+						
+			if(h == 0){
+				h = 12;
 			}
+			
+			if(h > 12){
+				h = h - 12;
+				session = "PM";
+			}
+			
+			h = (h < 10) ? "0" + h : h;
+			m = (m < 10) ? "0" + m : m;
+			
+			document.getElementById("hours").innerText = h;
+			document.getElementById("mins").textContent = m;
+			
+			setTimeout(showTime, 1000);
+			
+		}
+		showTime();
 	</script>
-
 </html>

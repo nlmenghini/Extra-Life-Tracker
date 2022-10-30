@@ -7,9 +7,9 @@
 #header{
 	background: none;
 	font-family: "New_Airport_Dot_3", "Gilroy-SemiBold", arial, sans-serif;
-	font-size: 1.5em;
+	font-size: 1.25em;
 	color: white;
-	letter-spacing: .05em;
+	letter-spacing: .15em;
 }
 
 #tracking-container.animate {
@@ -36,9 +36,9 @@
 	line-height: 1.2em;
 	font-family: "New_Airport_Dot_2", "Gilroy-medium", arial, sans-serif;
 	text-transform: uppercase;
-	font-size: 2.0em;
+	font-size: 1.75em;
 	color: white;
-	letter-spacing: .05em;
+	letter-spacing: .15em;
 }
 
 .donor-separator {
