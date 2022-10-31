@@ -4,6 +4,7 @@
 		<link rel="stylesheet" href="swear-jar.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+		<!-- <meta http-equiv="refresh" content="10"> -->
 	</head>
 
 	<body>
@@ -21,21 +22,22 @@
 		<div id="tracking-container" class="elt glow">
 			<span id="header">SWEAR JAR</span>
 			<span class="separator">></span>
-			<span id="swear-amount"> $25</span>
+			<span class="separator">$<span id="swear-amount"></span></span>
 		</div>
 	</body>
-	
-	<script>
-		var xhttp = new XMLHttpRequest();
-		  xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-			  document.getElementById("swear-amount").innerHTML =
-			  this.responseText;
-			}
-		  };
-		  xhttp.open("GET", "file:///C:/Users/Saint/Documents/Auto Hotkey/Swear jar counter/Swear Jar.txt", true);
-		  xhttp.send();
-	</script>
+
+	<script type="text/javascript">
+  		var auto_refresh = setInterval(
+		function ()
+			{
+				jQuery.get('swear-jar.txt', function(data) {
+				$('#swear-amount').html((data.replace('n',''))*5);
+			});
+			}, 10000
+		);
+
+    </script>
+
 	<script>
 		function showTime(){
 			var date = new Date();

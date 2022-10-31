@@ -12,7 +12,7 @@
 	font-family: "New_Airport_Dot_2", "Gilroy-SemiBold", arial, sans-serif;
 	font-size: 1.0em;
 	color: white;
-	letter-spacing: .15em;
+	letter-spacing: .2em;
 	display: inline;
 	position: unset;
 }
@@ -21,20 +21,20 @@
 	font-family: "New_Airport_Dot_2", "Gilroy-medium", arial, sans-serif;
 	font-size: 1.0em;
 	color: white;
-	letter-spacing: .15em;
+	letter-spacing: .2em;
 }
 
 .clock, .separator {
     font-family: "New_Airport_Dot_2", "Gilroy-medium", arial, sans-serif;
 	font-size: 1.0em;
 	color: white;
-	letter-spacing: .15em;   
+	letter-spacing: .2em;   
 }
 
 .colon {
 	color: white;
 	font-size: 0.75em;
-	letter-spacing: .15em;
+	letter-spacing: .25em;
 	font-family: "New_Airport_Dot_5", "Gilroy-medium", arial, sans-serif;
 	animation: blink-animation 1s steps(5, start) infinite;
     -webkit-animation: blink-animation 1s steps(5, start) infinite;
