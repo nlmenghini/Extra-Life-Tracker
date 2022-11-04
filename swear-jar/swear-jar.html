@@ -24,6 +24,11 @@
 			<span class="separator">></span>
 			<span class="separator">$<span id="swear-amount"></span></span>
 		</div>
+		<div id="tracking-container" class="elt glow">
+			<span id="header">SPOONS OF HOTSAUCE</span>
+			<span class="separator">></span>
+			<span id="incentives"></span>
+		</div>
 	</body>
 
 	<script type="text/javascript">
@@ -37,6 +42,18 @@
 		);
 
     </script>
+
+	<script type="text/javascript">
+		var auto_refresh = setInterval(
+	function ()
+		{
+			jQuery.get('incentives.txt', function(data) {
+			$('#incentives').html((data.replace('n','')));
+		});
+		}, 10000
+	);
+
+	</script>
 
 	<script>
 		function showTime(){
