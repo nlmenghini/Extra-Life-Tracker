@@ -17,7 +17,7 @@
 	position: unset;
 }
 
-#swear-amount, #clock, #entry-number {
+#swear-amount, #clock, #entry-number, #incentives {
 	font-family: "New_Airport_Dot_2", "Gilroy-medium", arial, sans-serif;
 	font-size: 1.0em;
 	color: white;
