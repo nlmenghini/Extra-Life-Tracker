@@ -1,8 +1,8 @@
 ELT.settings = {
 	// the date-time that the event will start in yyyy-mm-dd hh:mm+hh:mm format (24 hour with timezone offset)
-	startTime: "2022-11-05 09:00-04:00",
+	startTime: "2023-11-04 09:00-04:00",
 	// the date-time the event will end
-	endTime: "2022-11-06 09:00-05:00",
+	endTime: "2023-11-05 09:00-05:00",
 	// if seconds should be shown
 	displaySeconds: true,
 	// if a header should be displayed above the timer

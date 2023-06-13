@@ -6,7 +6,7 @@ ELT.settings = {
 	// direction of animation (left or right)
 	animateTo: 'left',
 	// get donation information for this team
-	participantIds: [484208],
+	participantIds: [516575],
 	// name to show if the donor name is null
 	unknownDonorName: "Mysterious Hero",
 	// Message displayed when donation amount it private to the donatee
