@@ -1,3 +1,8 @@
+body{
+	width: 1920px;
+	height: 1080px;
+}
+
 #tracking-container {
 	opacity: 1;
 	background: none;
@@ -7,48 +12,82 @@
 
 #page-header{
 	background: none;
-	font-family: "New_Airport_Dot_4", "Gilroy-SemiBold", arial, sans-serif;
+	font-family: "BrockmannMedium", arial, sans-serif;
+	font-weight: 900;	
 	font-size: 2.0em;
 	color: white;
+	text-shadow: 3px 5px rgba(0,0,0,.5),
+	0px 0px 5px rgba(0,0,0,.1),
+	0px 0px 10px rgba(0,0,0,.2),
+	0px 0px 15px rgba(0,0,0,.3),
+	0px 0px 20px rgba(0,0,0,.4);
 	letter-spacing: .15em;
-}
-
-#label{
-	font-family: "New_Airport_Dot_2", "Gilroy-SemiBold", arial, sans-serif;
 }
 
 #connected-id {
-	font-family: "New_Airport_Dot_2", "Gilroy-medium", arial, sans-serif;
+	font-family: "BrockmannMedium", arial, sans-serif;
+	font-weight: 900;	
 	font-size: 1.0em;
 	color: white;
+	text-shadow: 1px 2px rgba(0,0,0,.5),
+	0px 0px 5px rgba(0,0,0,.1),
+	0px 0px 10px rgba(0,0,0,.2),
+	0px 0px 15px rgba(0,0,0,.3),
+	0px 0px 20px rgba(0,0,0,.4);
+	
 	letter-spacing: .15em;
 }
 
-.donor-separator {
-	position: relative;
-    top: -0.05em;
-	font-size: .75em;
-	line-height: 1.2em;
-	display: inline-block;
-	margin:0 10px;
-	animation: blink-animation 1s steps(5, start) infinite;
-    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+.cam-wrapper-seafoam {
+	width: 480px;
+	height: 270px;
+	display: flex;
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+}
+.cam-wrapper-seafoam::before {
+	content: "";
+	width: 480px;
+	height: 270px;
+	box-shadow: 0 0 20px rgba(73,213,156,.3), inset 0 0 20px rgba(73,213,156,.3);
+	z-index: 100;
+	border: 3px solid #49D59C;
+	color:	rgb(73,213,156);
+    border-radius: 52px 0px 52px 52px;
+}
+.cam-wrapper-seafoam::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0;
+    bottom: -1px;
+    left: 0px;
+	width: 480px;
+	height: 280px;
+	opacity: .2;
+    z-index: -1;
+	border: 3px solid #49D59C;
+    border-radius: 52px 0px 52px 52px;
+}
+  
+.cam-wrapper-gold {
+	width: 480px;
+	height: 270px;
+	margin-top: 20px;
+	border: 3px solid #FFE81F;
+	border-radius: 52px;
+}
+  
+.seafoam-glow {
+box-shadow: 0 0 20px rgba(17,249,249,.3), inset 0 0 20px rgba(17,249,249,.3);
+z-index: 100;
 }
 
-@keyframes blink-animation {
-	to {
-		visibility: hidden;
-	}
-}
-@-webkit-keyframes blink-animation {
-	to {
-		visibility: hidden;
-	}
+.gold-glow {
+box-shadow: 0 0 40px rgba(255, 232, 31,.4), inset 0 0 40px rgba(255, 232, 31,.4);
+z-index: 100;
 }
 
-svg {
-	filter: drop-shadow(3px 0px 5px rgb(255 255 255 / 0.5));
-	fill: white;
-}
 
 

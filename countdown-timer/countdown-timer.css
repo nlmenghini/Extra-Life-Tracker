@@ -6,17 +6,27 @@
 	border: none;
 }
 
-#header{
-	background: none;
-	font-family: "New_Airport_Dot_3", "Gilroy-SemiBold", arial, sans-serif;
-	font-size: 1.5em;
-	color: white;
+.header {
+	font-family: "BrockmannMedium", arial, sans-serif;
+	font-weight: 900;
+	color: #49D59C;
 	letter-spacing: .15em;
+	text-shadow: 2px 4px rgba(24, 71, 61, .5),
+		0px 0px 5px rgba(24, 71, 61, .1),
+		0px 0px 10px rgba(24, 71, 61, .2),
+		0px 0px 15px rgba(24, 71, 61, .3),
+		0px 0px 20px rgba(24, 71, 61, .4);
 }
 
-#countdown-timer-time {
-	font-family: "New_Airport_Dot_2", "Gilroy-medium", arial, sans-serif;
+.countdown-timer-time {
+	font-family: "BrockmannMedium", arial, sans-serif;
+	font-weight: 900;
 	font-size: 1.75em;
-	color: white;
+	color: #49D59C;
 	letter-spacing: .15em;
+	text-shadow: 2px 4px rgba(24, 71, 61, .5),
+		0px 0px 5px rgba(24, 71, 61, .1),
+		0px 0px 10px rgba(24, 71, 61, .2),
+		0px 0px 15px rgba(24, 71, 61, .3),
+		0px 0px 20px rgba(24, 71, 61, .4);
 }

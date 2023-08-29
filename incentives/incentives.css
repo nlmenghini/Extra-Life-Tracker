@@ -1,6 +1,8 @@
-
+body{
+	background-color: white;
+}
 .incentive-container{
-	background: rgba(0,0,0,0.75);
+	background: rgba(13, 38, 33, .85);
     width: fit-content;
     border-radius: 0 10px 10px 0;
     padding: 20px 30px 20px 20px;
@@ -18,26 +20,40 @@
 
 #header{
 	background: none;
-	font-family: "New_Airport_Dot_2", "Gilroy-SemiBold", arial, sans-serif;
+	font-family: "BrockmannMedium", arial, sans-serif;
+	font-weight: 900;	
 	font-size: .65em;
-	color: white;
-	letter-spacing: .2em;
+	color: #49D59C;
+	text-shadow: 2px 4px rgba(24, 71, 61, .5),
+		0px 0px 5px rgba(24, 71, 61, .1),
+		0px 0px 10px rgba(24, 71, 61, .2),
+		0px 0px 15px rgba(24, 71, 61, .3),
+		0px 0px 20px rgba(24, 71, 61, .4);	letter-spacing: .2em;
 	display: inline;
 	position: unset;
 }
 
 #incentive {
-	font-family: "New_Airport_Dot_2", "Gilroy-medium", arial, sans-serif;
+	font-family: "BrockmannMedium", arial, sans-serif;
+	font-weight: 900;	
 	font-size: .65em;
-	color: white;
-	letter-spacing: .2em;
+	color: #49D59C;
+	text-shadow: 2px 4px rgba(24, 71, 61, .5),
+		0px 0px 5px rgba(24, 71, 61, .1),
+		0px 0px 10px rgba(24, 71, 61, .2),
+		0px 0px 15px rgba(24, 71, 61, .3),
+		0px 0px 20px rgba(24, 71, 61, .4);	letter-spacing: .2em;
 }
 
 .separator {
-    font-family: "New_Airport_Dot_2", "Gilroy-medium", arial, sans-serif;
-	font-size: .75em;
-	color: white;
-	letter-spacing: .2em;   
+	font-family: "BrockmannMedium", arial, sans-serif;
+		font-weight: 900;	font-size: .75em;
+	color: #49D59C;
+	text-shadow: 2px 4px rgba(24, 71, 61, .5),
+		0px 0px 5px rgba(24, 71, 61, .1),
+		0px 0px 10px rgba(24, 71, 61, .2),
+		0px 0px 15px rgba(24, 71, 61, .3),
+		0px 0px 20px rgba(24, 71, 61, .4);	letter-spacing: .2em;   
 }
 
 @keyframes blink-animation {

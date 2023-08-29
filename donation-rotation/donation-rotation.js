@@ -1,7 +1,7 @@
 (function( $, ELT ){
-		/**********
-		 * Main Functionality
-		 **********/
+	/**********
+	 * Main Functionality
+	 **********/
 
 	var $participants = {};
 	var $donations = [];
@@ -80,7 +80,7 @@
 				const donorName = !curDonation.displayName ? ELT.settings.unknownDonorName : curDonation.displayName;
 				
 				participant = $participants[curDonation.participantID].displayName;
-				donationText = `<span class="donor-name">${donorName}</span><span class="donor-separator">></span><span class="donor-amount">${amount}</span>`;
+				donationText = `<span class="donor-name">${donorName}</span><span class="donor-amount"> ${amount}</span>`;
 			} else {
 				participant = ' ';
 				donationText = 'No donations';

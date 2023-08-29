@@ -6,16 +6,28 @@
 
 #header{
 	background: none;
-	font-family: "New_Airport_Dot_3", "Gilroy-SemiBold", arial, sans-serif;
-	font-size: 1.25em;
-	color: white;
+	font-family: "BrockmannMedium", arial, sans-serif;
+	font-weight: 900;	
+	font-size: 1em;
+	color: #49D59C;
+	text-shadow: 2px 4px rgba(24, 71, 61, .5),
+		0px 0px 5px rgba(24, 71, 61, .1),
+		0px 0px 10px rgba(24, 71, 61, .2),
+		0px 0px 15px rgba(24, 71, 61, .3),
+		0px 0px 20px rgba(24, 71, 61, .4);
 	letter-spacing: .15em;
 }
 
 #goal, #raised {
-	font-family: "New_Airport_Dot_2", "Gilroy-medium", arial, sans-serif;
+	font-family: "BrockmannMedium", arial, sans-serif;
+	font-weight: 900;	
 	font-size: 1.75em;
-	color: white;
+	color: #49D59C;
+	text-shadow: 2px 4px rgba(24, 71, 61, .5),
+		0px 0px 5px rgba(24, 71, 61, .1),
+		0px 0px 10px rgba(24, 71, 61, .2),
+		0px 0px 15px rgba(24, 71, 61, .3),
+		0px 0px 20px rgba(24, 71, 61, .4);
 	letter-spacing: .15em;
 }
 

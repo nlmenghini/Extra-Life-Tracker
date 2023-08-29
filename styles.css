@@ -1,34 +1,26 @@
 @font-face {
-    font-family: "Gilroy-Heavy";
-    src: url("fonts/Gilroy-Heavy.otf") format("opentype");
+    font-family: "Proxima-Nova-Reg";
+    src: url("fonts/Proxima-Nova-Reg.otf") format("opentype");
 }
 @font-face {
-    font-family: "Gilroy-SemiBold";
-    src: url("fonts/Gilroy-SemiBold.otf") format("opentype");
+    font-family: "Proxima-Nova-Reg-It";
+    src: url("fonts/Proxima-Nova-Reg-It.otf") format("opentype");
 }
 @font-face {
-    font-family: "Gilroy-Medium";
-    src: url("fonts/Gilroy-Medium.otf") format("opentype");
+    font-family: "Marvin-Visions-Big-Bold";
+    src: url("fonts/MarvinVisionsBig-Bold.woff2") format('woff');
 }
 @font-face {
-    font-family: "New_Airport_Dot_1";
-    src: url("fonts/NewAirportDot1.otf") format("opentype");
+    font-family: "FuturaNowHeadlineBlack";
+    src: url("fonts/FuturaNowHeadlineBlack.ttf") format('truetype');
+} 
+@font-face {
+    font-family: "FuturaNowHeadlineMedium";
+    src: url("fonts/FuturaNowHeadlineMedium.ttf") format('truetype');
 }
 @font-face {
-    font-family: "New_Airport_Dot_2";
-    src: url("fonts/NewAirportDot2.otf") format("opentype");
-}
-@font-face {
-    font-family: "New_Airport_Dot_3";
-    src: url("fonts/NewAirportDot3.otf") format("opentype");
-}
-@font-face {
-    font-family: "New_Airport_Dot_4";
-    src: url("fonts/NewAirportDot4.otf") format("opentype");
-}
-@font-face {
-    font-family: "New_Airport_Dot_5";
-    src: url("fonts/NewAirportDot5.otf") format("opentype");
+    font-family: "BrockmannMedium";
+    src: url("fonts/brockmann-medium-webfont.woff2") format('woff');
 }
 
 html {
@@ -36,7 +28,8 @@ html {
 }
 
 body {
-	font-family: "Gilroy-Medium", arial, sans-serif;
+	font-family: "BrockmannMedium", arial, sans-serif;
+	font-weight: 900;
 	margin: 0;
 	background-color: black;
 }
@@ -46,11 +39,11 @@ body {
 	position: relative;
 	background-color: #26C2EB; /* Extra Life Dark Blue */
 	border-color: #C73047; /* CMN Hospitals Red */
-	color: #ffffff;
+	color: #FAF7DC;
 }
 
 #header {
-	background-color: #1D4C6C; /* Extra Life Light Blue */
+	background: none;
 	display: block;
 	font-size: 1em;
 	font-weight: bold;
@@ -74,31 +67,19 @@ body {
 	line-height: 0.7em;
 }
 
-.glow {
-	color: rgba(255, 255, 255, 0.5);
-    fill: rgba(255, 255, 255, 0.5);
-	-webkit-animation: glow 1s ease-in-out infinite alternate;
-	-moz-animation: glow 1s ease-in-out infinite alternate;
-	animation: glow 1s ease-in-out infinite alternate;
+.seafoam {
+	color: #11f9f8 !important;
+	text-shadow: 2px 4px rgba(13,249,248,.2),
+	0px 0px 5px rgba(13,249,248,.1),
+	0px 0px 10px rgba(13,249,248,.2),
+	0px 0px 15px rgba(13,249,248,.3),
+	0px 0px 20px rgba(13,249,248,.4) !important;
 }
-  
-@keyframes glow {
-  from {
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.4),
-            0 0 2px rgba(255, 255, 255, 0.4), 
-          0 0 3px rgba(255, 255, 255, 0.4), 
-          0 0 4px rgba(255, 255, 255, 0.4), 
-          0 0 5px rgba(255, 255, 255, 0.4), 
-          0 0 6px rgba(255, 255, 255, 0.4), 
-          0 0 7px rgba(255, 255, 255, 0.4);
-  }
-  to {
-    text-shadow: 0 0 2px rgba(255, 255, 255, 0.45),
-            0 0 3px rgba(255, 255, 255, 0.45),
-          0 0 4px rgba(255, 255, 255, 0.45), 
-          0 0 5px rgba(255, 255, 255, 0.45), 
-          0 0 6px rgba(255, 255, 255, 0.45), 
-          0 0 7px rgba(255, 255, 255, 0.45), 
-          0 0 8px rgba(255, 255, 255, 0.45);
-  }
+.gold {
+	color: #FFE81F !important;
+	text-shadow: 2px 4px rgba(255, 232, 31,.2),
+	0px 0px 5px rgba(255, 232, 31,.1),
+	0px 0px 10px rgba(255, 232, 31,.2),
+	0px 0px 15px rgba(255, 232, 31,.3),
+	0px 0px 20px rgba(255, 232, 31,.4) !important;
 }
