@@ -22,6 +22,18 @@
     font-family: "BrockmannMedium";
     src: url("fonts/brockmann-medium-webfont.woff2") format('woff');
 }
+@font-face {
+	font-family: "NBArchitekLight";
+	src: url("fonts/NBArchitektStd-Light.otf") format('opentype');
+}
+@font-face {
+	font-family: "NBArchitekRegular";
+	src: url("fonts/NBArchitektStd-Regular.otf") format('opentype');
+}
+@font-face {
+	font-family: "NBArchitekBold";
+	src: url("fonts/NBArchitektStd-Bold.otf") format('opentype');
+}
 
 html {
 	font-size: 1rem;
@@ -65,21 +77,4 @@ body {
 .small-text {
 	font-size: 0.6em;
 	line-height: 0.7em;
-}
-
-.seafoam {
-	color: #11f9f8 !important;
-	text-shadow: 2px 4px rgba(13,249,248,.2),
-	0px 0px 5px rgba(13,249,248,.1),
-	0px 0px 10px rgba(13,249,248,.2),
-	0px 0px 15px rgba(13,249,248,.3),
-	0px 0px 20px rgba(13,249,248,.4) !important;
-}
-.gold {
-	color: #FFE81F !important;
-	text-shadow: 2px 4px rgba(255, 232, 31,.2),
-	0px 0px 5px rgba(255, 232, 31,.1),
-	0px 0px 10px rgba(255, 232, 31,.2),
-	0px 0px 15px rgba(255, 232, 31,.3),
-	0px 0px 20px rgba(255, 232, 31,.4) !important;
 }

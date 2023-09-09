@@ -1,0 +1,44 @@
+body {
+	display: flex;
+    align-items: center;
+	justify-content: center;
+	height: 1080px;
+    width: 1920px;
+}
+
+.container {
+	text-transform: uppercase;
+	left: 153px;
+    position: relative;
+	font-family: "BrockmannMedium", arial, sans-serif;
+	font-weight: 900;
+	color: #FAF7DC;
+	font-size: 6rem;
+	line-height: 5.75rem;
+	font-variant: tabular-nums;
+}
+
+#tracking-container {
+	opacity: 1;
+	background: none;
+	border: none;
+}
+
+.stylistic-set-1{
+	font-feature-settings: "ss01";
+}
+.stylistic-set-2{
+	font-feature-settings: "ss02";
+}
+
+#donors-header, 
+#donation,
+#extra-life {
+	font-weight: 100;
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+#donation {
+	display: block;
+    height: 32px !important;
+}
