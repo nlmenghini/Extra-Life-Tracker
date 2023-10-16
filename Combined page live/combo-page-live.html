@@ -9,6 +9,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/numeral@2.0.6/numeral.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
+	<script src='https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js'></script>
 	<script src="../elt.js"></script>
 	<script src="combo-page-live-settings.js"></script>
 </head>
@@ -18,96 +20,71 @@
 		<div class="box">
 			<div class="triangle-element"></div>
 		</div>
-		<div class="label-box">
+		<div class="el-year">
 			<span>Extra Life 2023</span>
 		</div>
-		<div class="info-box">
-			<div class="info-top">
-				<span id="">TIME</span>
-				<span id="hours" class="clock" onload="showTime()"></span>
-				<span class="colon">:</span>
-				<span id="mins" class="clock" onload="showTime()"></span>
+		<div class="team-name">
+			<span id="" class="">PAPER HANDGRENADES</span>
+		</div>
+		<div class="year">
+			<span id="" class="">YEAR 10</span>
+		</div>
+		<div class="time">
+			<span id="">TIME</span>
+			<span id="hours" class="clock" onload="showTime()">00</span>
+			<span class="colon">:</span>
+			<span id="mins" class="clock" onload="showTime()">00</span>
+		</div>
+		<div class="timer">
+			<span id="timer-header"></span>
+			<span id="countdown-timer-time"></span>
+		</div>
+		<div class="goal">
+			<span id="">Goal</span>
+			<span id="goal"></span>
+		</div>
+		<div class="raised">
+			<span id="">Raised</span>
+			<span id="raised"></span>
+		</div>
+		<div class="swear-jar">
+			<span>Swear Jar</span>
+			<span>$<span id="swear-amount"></span></span>
+		</div>
+		<div class="progress-bar-container" id="progress">
+			<div class="progress-header">
+				<div class="progress-header-text">Progress</div>
+				<div class="progress-percent">{{ Math.floor((entity.sumDonations / entity.fundraisingGoal) * 100)
+					}}%</div>
 			</div>
-			<div class="info-header">
-				<span id="" class="">PAPER HANDGRENADES</span>
-			</div>
-			<div class="info-stats-container">
-				<div class="info-stats-inner">
-					<div class="info-stats-inner-header">YEAR</div>
-					<div class="info-stats-inner-value">10</div>
+			<div class="progress">
+				<div class="progress-bar progress-bar-grow bg-blue" role="progressbar"
+					v-bind:style="{ width: ((entity.sumDonations / entity.fundraisingGoal) * 100) + '%' }">
 				</div>
-				<div class="info-stats-inner">
-					<div class="info-stats-inner-header" id="timer-header"></div>
-					<div class="info-stats-inner-value" id="countdown-timer-time"></div>
-				</div>
-				<div class="info-stats-inner">
-					<div class="info-stats-inner-header">Goal</div>
-					<div class="info-stats-inner-value" id="goal"></div>
-				</div>
-				<div class="info-stats-inner">
-					<div class="info-stats-inner-header">Raised</div>
-					<div class="info-stats-inner-value" id="raised"></div>
-				</div>
-				<div class="info-stats-inner">
-					<div class="info-stats-inner-header">Swear Jar</div>
-					<div class="info-stats-inner-value">$<span id="swear-amount"></span></div>
-				</div>
-			</div>
-			<div class="info-progress-tracker" id="progress">
-				<div class="progress-header">
-					<div class="progress-header-text">Progress</div>
-					<div class="progress-percent">{{ Math.floor((entity.sumDonations / entity.fundraisingGoal) * 100)
-						}}%</div>
-				</div>
-				<div class="progress">
-					<div class="progress-bar progress-bar-grow bg-blue" role="progressbar"
-						v-bind:style="{ width: ((entity.sumDonations / entity.fundraisingGoal) * 100) + '%' }">
-					</div>
-				</div>
-			</div>
-			<div class="info-donors">
-				<div id="donors-header" class="donors-header">DONORS</div>
-				<div id="donation" class="donation"></div>
 			</div>
 		</div>
-		<div class="stream-status-label">
-			<span id="" class="">Stream Starting</span>
+		<div class="donors">
+			<span id="donors-header" class="donors-header">DONORS</span>
+			<span id="donation" class="donation"></span>
 		</div>
-		<div class="stripes">
-			<svg viewBox="0 0 495.184 860">
-				<rect x="445.184" width="50" height="210" fill="color-mix(in srgb, var(--blue) 25%, transparent)" />
-				<rect x="385.184" width="50" height="170" fill="color-mix(in srgb, var(--blue) 25%, transparent)" />
-				<rect x="325.184" width="50" height="130" fill="color-mix(in srgb, var(--blue) 25%, transparent)" />
-				<rect x="265.184" width="50" height="90" fill="color-mix(in srgb, var(--blue) 25%, transparent)" />
-				<rect x="205.184" width="50" height="50" fill="color-mix(in srgb, var(--blue) 25%, transparent)" />
-				<rect x="145.184" width="50" height="10" fill="color-mix(in srgb, var(--blue) 25%, transparent)" />
-				<path
-					d="m195.184,694.105V20h-50v653.395c0,26.522-10.536,51.957-29.289,70.711L0,860h70.711l95.184-95.184c18.754-18.754,29.289-44.189,29.289-70.711Z"
-					fill="color-mix(in srgb, var(--blue) 40%, transparent)" />
-				<path
-					d="m255.184,719V60h-50v638.289c0,26.522-10.536,51.957-29.289,70.711l-91,91h70.711l70.289-70.289c18.754-18.754,29.289-44.189,29.289-70.711Z"
-					fill="color-mix(in srgb, var(--blue) 40%, transparent)" />
-				<path
-					d="m315.184,743.895V100h-50v623.184c0,26.522-10.536,51.957-29.289,70.711l-66.105,66.105h70.711l45.395-45.395c18.754-18.754,29.289-44.189,29.289-70.711Z"
-					fill="color-mix(in srgb, var(--blue) 40%, transparent)" />
-				<path
-					d="m375.184,768.789V140h-50v608.079c0,26.522-10.536,51.957-29.289,70.711l-41.211,41.211h70.711l20.5-20.5c18.754-18.754,29.289-44.189,29.289-70.711Z"
-					fill="color-mix(in srgb, var(--blue) 40%, transparent)" />
-				<path
-					d="m435.184,428.816v-248.816h-50v592.973c0,26.522-10.536,51.957-29.289,70.711l-16.316,16.316h70.443c16.161-18.237,25.162-41.811,25.162-66.316v-364.868Z"
-					fill="color-mix(in srgb, var(--blue) 40%, transparent)" />
-				<path
-					d="m495.184,818.579V220h-50v577.868c0,22.671-7.704,44.544-21.653,62.132h62.663c5.865-12.886,8.99-26.991,8.99-41.421Z"
-					fill="color-mix(in srgb, var(--blue) 40%, transparent)" />
-			</svg>
+		<div class="incentives">
+			<span class="incentives-header">$10 gets you a wheel spin for a chance at:</span>
+			<div class="incentives-value incentives-value-1">
+				<span>1 spoon of hotsauce</span>
+				<span>1 spoon of vegemite</span>
+				<span>1 bite of onion</span>
+				<span>10 pushups</span>
+				<span>10 situps</span>
+				<span>10 squats</span>
+				<span>Jackpot, all six in a row!</span>
+			</div>
 		</div>
-	</div>
-	<script src="combo-page-live.js"></script>
+		<script src="combo-page-live.js"></script>
 </body>
 <script type="text/javascript">
 	var auto_refresh = setInterval(
 		function () {
-			jQuery.get('swear-jar.txt', function (data) {
+			jQuery.get('../swear-jar/swear-jar.txt', function (data) {
 				$('#swear-amount').html((data.replace('n', '')) * 5);
 			});
 		}, 10000
@@ -218,6 +195,25 @@
 	}
 
 	v.refreshEntity();
+</script>
+<script>
+	$(document).ready(function () {
+		var $spans = $('.incentives-value span');
+		var currentSpanIndex = 0;
+
+		function showNextSpan() {
+			$spans.eq(currentSpanIndex).fadeIn(500, function () {
+				setTimeout(function () {
+					$spans.eq(currentSpanIndex).fadeOut(500, function () {
+						currentSpanIndex = (currentSpanIndex + 1) % $spans.length;
+						showNextSpan();
+					});
+				}, 4000);
+			});
+		}
+
+		showNextSpan();
+	});
 </script>
 
 </html>

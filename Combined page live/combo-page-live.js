@@ -52,8 +52,10 @@
 	function onSuccess(result) {
 		const $raised = $('#raised');
 		const $goal = $('#goal');
-		$raised.html(ELT.toCurrency(result.sumDonations));
-		$goal.html(ELT.toCurrency(result.fundraisingGoal));
+		const raisedAmount = Math.floor(result.sumDonations); // Round down to the nearest dollar
+		const goalAmount = Math.floor(result.fundraisingGoal);  // Round down to the nearest dollar
+		$raised.html(raisedAmount.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }));
+		$goal.html(goalAmount.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }));
 	}
 	start();
 })(window.jQuery, window.ELT);
@@ -144,7 +146,7 @@
 				const donorName = !curDonation.displayName ? ELT.settings.unknownDonorName : curDonation.displayName;
 				
 				participant = $participants[curDonation.participantID].displayName;
-				donationText = `<div class="donor-name">${donorName}</div><div class="donor-amount"> ${amount}</div>`;
+				donationText = `<span class="donor-name">${donorName} - </span><span class="donor-amount"> ${amount}</span>`;
 			} else {
 				participant = ' ';
 				donationText = 'No donations';

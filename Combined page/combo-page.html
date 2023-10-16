@@ -58,7 +58,7 @@
 <script type="text/javascript">
 	var auto_refresh = setInterval(
 		function () {
-			jQuery.get('swear-jar.txt', function (data) {
+			jQuery.get('../swear-jar/swear-jar.txt', function (data) {
 				$('#swear-amount').html((data.replace('n', '')) * 5);
 			});
 		}, 10000
