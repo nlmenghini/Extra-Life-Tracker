@@ -1,0 +1,223 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="../styles.css">
+	<link rel="stylesheet" href="starfield-inspired.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+	<script src="https://unpkg.com/currency.js@~1.0.0/dist/currency.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/numeral@2.0.6/numeral.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="../elt.js"></script>
+	<script src="starfield-inspired-settings.js"></script>
+</head>
+
+<body>
+	<div class="info-container">
+		<div class="box">
+			<div class="triangle-element"></div>
+		</div>
+		<div class="label-box">
+			<span>Extra Life 2023</span>
+		</div>
+		<div class="info-box">
+			<div class="info-top">
+				<span id="">TIME</span>
+				<span id="hours" class="clock" onload="showTime()"></span>
+				<span class="colon">:</span>
+				<span id="mins" class="clock" onload="showTime()"></span>
+			</div>
+			<div class="info-header">
+				<span id="" class="">PAPER HANDGRENADES</span>
+			</div>
+			<div class="info-stats-container">
+				<div class="info-stats-inner">
+					<div class="info-stats-inner-header">YEAR</div>
+					<div class="info-stats-inner-value">10</div>
+				</div>
+				<div class="info-stats-inner">
+					<div class="info-stats-inner-header" id="timer-header"></div>
+					<div class="info-stats-inner-value" id="countdown-timer-time"></div>
+				</div>
+				<div class="info-stats-inner">
+					<div class="info-stats-inner-header">Goal</div>
+					<div class="info-stats-inner-value" id="goal"></div>
+				</div>
+				<div class="info-stats-inner">
+					<div class="info-stats-inner-header">Raised</div>
+					<div class="info-stats-inner-value" id="raised"></div>
+				</div>
+				<div class="info-stats-inner">
+					<div class="info-stats-inner-header">Swear Jar</div>
+					<div class="info-stats-inner-value">$<span id="swear-amount"></span></div>
+				</div>
+			</div>
+			<div class="info-progress-tracker" id="progress">
+				<div class="progress-header">
+					<div class="progress-header-text">Progress</div>
+					<div class="progress-percent">{{ Math.floor((entity.sumDonations / entity.fundraisingGoal) * 100)
+						}}%</div>
+				</div>
+				<div class="progress">
+					<div class="progress-bar progress-bar-grow bg-blue" role="progressbar"
+						v-bind:style="{ width: ((entity.sumDonations / entity.fundraisingGoal) * 100) + '%' }">
+					</div>
+				</div>
+			</div>
+			<div class="info-donors">
+				<div id="donors-header" class="donors-header">DONORS</div>
+				<div id="donation" class="donation"></div>
+			</div>
+		</div>
+		<div class="stream-status-label">
+			<span id="" class="">Stream Starting</span>
+		</div>
+		<div class="stripes">
+			<svg viewBox="0 0 495.184 860">
+				<rect x="445.184" width="50" height="210" fill="color-mix(in srgb, var(--blue) 25%, transparent)" />
+				<rect x="385.184" width="50" height="170" fill="color-mix(in srgb, var(--blue) 25%, transparent)" />
+				<rect x="325.184" width="50" height="130" fill="color-mix(in srgb, var(--blue) 25%, transparent)" />
+				<rect x="265.184" width="50" height="90" fill="color-mix(in srgb, var(--blue) 25%, transparent)" />
+				<rect x="205.184" width="50" height="50" fill="color-mix(in srgb, var(--blue) 25%, transparent)" />
+				<rect x="145.184" width="50" height="10" fill="color-mix(in srgb, var(--blue) 25%, transparent)" />
+				<path
+					d="m195.184,694.105V20h-50v653.395c0,26.522-10.536,51.957-29.289,70.711L0,860h70.711l95.184-95.184c18.754-18.754,29.289-44.189,29.289-70.711Z"
+					fill="color-mix(in srgb, var(--blue) 40%, transparent)" />
+				<path
+					d="m255.184,719V60h-50v638.289c0,26.522-10.536,51.957-29.289,70.711l-91,91h70.711l70.289-70.289c18.754-18.754,29.289-44.189,29.289-70.711Z"
+					fill="color-mix(in srgb, var(--blue) 40%, transparent)" />
+				<path
+					d="m315.184,743.895V100h-50v623.184c0,26.522-10.536,51.957-29.289,70.711l-66.105,66.105h70.711l45.395-45.395c18.754-18.754,29.289-44.189,29.289-70.711Z"
+					fill="color-mix(in srgb, var(--blue) 40%, transparent)" />
+				<path
+					d="m375.184,768.789V140h-50v608.079c0,26.522-10.536,51.957-29.289,70.711l-41.211,41.211h70.711l20.5-20.5c18.754-18.754,29.289-44.189,29.289-70.711Z"
+					fill="color-mix(in srgb, var(--blue) 40%, transparent)" />
+				<path
+					d="m435.184,428.816v-248.816h-50v592.973c0,26.522-10.536,51.957-29.289,70.711l-16.316,16.316h70.443c16.161-18.237,25.162-41.811,25.162-66.316v-364.868Z"
+					fill="color-mix(in srgb, var(--blue) 40%, transparent)" />
+				<path
+					d="m495.184,818.579V220h-50v577.868c0,22.671-7.704,44.544-21.653,62.132h62.663c5.865-12.886,8.99-26.991,8.99-41.421Z"
+					fill="color-mix(in srgb, var(--blue) 40%, transparent)" />
+			</svg>
+		</div>
+	</div>
+	<script src="starfield-inspired.js"></script>
+</body>
+<script type="text/javascript">
+	var auto_refresh = setInterval(
+		function () {
+			jQuery.get('swear-jar.txt', function (data) {
+				$('#swear-amount').html((data.replace('n', '')) * 5);
+			});
+		}, 10000
+	);
+
+</script>
+<script>
+	function showTime() {
+		var date = new Date();
+		var h = date.getHours(); // 0 - 23
+		var m = date.getMinutes(); // 0 - 59
+		var session = "AM";
+		var separator = '<span class="separator">' + '<p>:</p>' + '</span>';
+
+		if (h == 0) {
+			h = 12;
+		}
+
+		if (h > 12) {
+			h = h - 12;
+			session = "PM";
+		}
+
+		h = (h < 10) ? "0" + h : h;
+		m = (m < 10) ? "0" + m : m;
+
+		document.getElementById("hours").innerText = h;
+		document.getElementById("mins").textContent = m;
+
+		setTimeout(showTime, 1000);
+
+	}
+	showTime();
+</script>
+<script>
+	Vue.filter(
+		'formatMoney',
+		(value) => {
+			return numeral(value).format('$0,0.00');
+		}
+	);
+
+	var v = new Vue({
+		data: {
+			count: 0,
+			donation: null,
+			donations: [],
+			entity: {
+				etag: '',
+				lastDonation: new Date().toISOString()
+			}
+		},
+		el: '#progress',
+		methods: {
+			refreshDonations() {
+				var ld = new Date(this.entity.lastDonation);
+
+				axios.get(window.config.api + window.config.resource + '/' + window.config.resourceID + '/donations' + (window.config.api.indexOf('?') >= 0 ? '&' : '?') + 'where=' + encodeURIComponent('createdDateUTC > ' + ld.toISOString()) + '&orderBy=' + encodeURIComponent('createdDateUTC ASC'))
+					.then((response) => {
+						response.data.forEach((dx) => {
+							var createdDate = new Date(dx.createdDateUTC);
+
+							if (createdDate > ld) {
+								this.donations.push(dx);
+								this.entity.lastDonation = dx.createdDateUTC;
+							}
+						});
+					});
+			},
+			refreshEntity() {
+				axios.get(window.config.api + window.config.resource + '/' + window.config.resourceID, { headers: { 'if-none-match': this.entity.etag } })
+					.then((response) => {
+						// success
+						var e = Object.assign({}, this.entity, response.data);
+						e.etag = response.headers.etag;
+
+						this.entity = e;
+
+						if (window.config.streamingThermometer.showDonations) {
+							this.refreshDonations();
+						}
+					})
+					.catch((error) => { });
+			}
+		}
+	});
+
+	setInterval(
+		() => {
+			v.refreshEntity();
+		},
+		15000
+	);
+
+	if (window.config.streamingThermometer.showDonations) {
+		setInterval(
+			() => {
+				if (v.donations.length) {
+					v.donation = v.donations.shift();
+					setTimeout(
+						() => { v.donation = null; },
+						5000
+					);
+				}
+			},
+			7000
+		);
+	}
+
+	v.refreshEntity();
+</script>
+
+</html>

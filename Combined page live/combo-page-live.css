@@ -1,0 +1,223 @@
+:root {
+	--white: #f4f4f9;
+	--green: #49D59C;
+}
+
+*{
+	box-sizing: border-box;
+}
+body {
+	display: flex;
+    align-items: center;
+	justify-content: center;
+	height: 1080px;
+    width: 1920px;
+	text-transform: uppercase;
+	font-family: "BrockmannMedium", arial, sans-serif;	
+	color: var(--green);
+	font-weight: normal;
+}
+.info-container {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.triangle-element {
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+	position: relative;
+	margin: 10px;
+}
+.triangle-element:after {
+	content: '';
+	background: var(--green);
+	width: 30%;
+	height: 30%;
+	position: absolute;
+	transform: rotate(45deg) translate(71%, 0);
+}
+.box {
+	width: 50px;
+	height: 50px;
+	border: 1px solid var(--green);
+	position: relative;
+	top: 50px;
+	left: 50px;
+	background-color: color-mix(in srgb, var(--green) 25%, transparent);
+}
+.label-box {
+	width: 50px;
+	height: 800px;
+	border: 1px solid var(--green);
+	position: relative;
+	top: 60px;
+	left: 50px;
+	padding-top: 20px;
+}
+.label-box span {
+	font-size: 18px;
+	line-height: 50px;
+	writing-mode: vertical-rl;
+	text-orientation: mixed;
+	transform: rotate(180deg);
+}
+
+.info-box {
+	position: absolute;
+	top: 50px;
+	left: 150px;
+}
+.info-top {
+	border: 1px solid var(--green);
+	width: 400px;
+	height: 50px;
+	font-size: 18px;
+	line-height: 50px;
+	text-indent: 20px;
+}
+.info-header {
+	border: 1px solid var(--green);
+	width: 400px;
+	height: 100px;
+	line-height: 100px;
+	text-indent: 20px;
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: -1px;
+}
+.info-stats-container {
+	border: 1px solid var(--green);
+	width: 400px;
+	padding: 20px;
+	margin-top: -1px;
+}
+.info-stats-inner {
+	width: 360px;
+	display: flex;
+	margin:5px auto;
+	border: 2px solid color-mix(in srgb, var(--green) 25%, transparent);
+}
+.info-stats-inner-header {
+	background-color: color-mix(in srgb, var(--green) 25%, transparent);
+	width: 180px;
+	height: 30px;
+	margin: auto;
+	font-size: 18px;
+	line-height: 30px;
+	text-indent: 10px;
+}
+.info-stats-inner-value {
+	width: 180px;
+	height: 30px;
+	margin: auto;
+	font-size: 18px;
+	line-height: 30px;
+	text-align: right;
+	text-indent: 10px;
+	direction: rtl;
+}
+
+.info-donors {
+	border: 1px solid var(--green);
+	width: 400px;
+	height: 100px;
+	margin-top: -1px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.donors-header {
+	font-size: 18px;
+	text-indent: 20px;
+}
+
+.donation {
+	font-size: 20px;
+	font-weight: bold;
+	text-indent: 20px;
+	display: flex;
+	flex-direction: row;
+}
+.donor-name {
+	
+}
+.donor-amount {
+	text-align: right;
+}
+
+.info-progress-tracker {
+	border: 1px solid var(--green);
+	width: 400px;
+	height: 80px;
+	padding: 20px;
+	margin-top: -1px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: color-mix(in srgb, var(--green) 25%, transparent);
+}
+.progress-header {
+	width: 360px;
+	display: flex;
+}
+.progress-header-text{
+	width: 180px;
+	height: 25px;
+	margin: auto;
+	font-size: 18px;
+	font-weight: bold;
+}
+.progress-percent {
+	width: 180px;
+	height: 25px;
+	margin: auto;
+	font-size: 18px;
+	text-align: right;
+}
+
+.progress {
+	display: -ms-flexbox;
+	display: flex;
+	height: 5px; 
+	overflow: hidden;
+	font-size: 0.75rem;
+	background-color: color-mix(in srgb, var(--green) 10%, transparent);
+}
+
+.progress-bar {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-pack: center;
+	justify-content: center;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	background-color: var(--green);
+	transition: width 0.6s ease;
+}
+.stream-status-label {
+	width: 350px;
+	height: 100px;
+	line-height: 100px;
+	font-size: 20px;
+	font-weight: bold;
+	position: absolute;
+	right: 50px;
+	top: 130px;
+	text-align: center;
+	text-indent: -5px;
+	font-size: 2.1vw;
+	color: color-mix(in srgb, var(--green) 50%, transparent);
+}
+.stripes{
+	width: 500px;
+	height: 860px;
+	position: absolute;
+	right: 50px;
+	bottom: 0px;
+	overflow: hidden;
+}
