@@ -1,0 +1,74 @@
+<html>
+
+<head>
+	<!-- <link rel="stylesheet" href="../styles.css">-->
+	<link rel="stylesheet" href="bravo.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://unpkg.com/currency.js@~1.0.0/dist/currency.min.js"></script>
+	<script src="../elt.js"></script>
+	<script src="bravo-settings.js"></script>
+	<title>Bravo</title>
+</head>
+
+<body>
+	<button id="test-donation-btn">Test Donation</button>
+	<div id="tracking-container">
+		<img id="bravo-slideshow" src="pngs/level_bravo_0000.png" alt="bravo-slideshow Image">
+	</div>
+
+	<!-- Script for Bravo slideshow -->
+	<script>
+		const bravoImages = [];
+
+		// Populate the images array with 27 image filenames (from 0000 to 0027)
+		for (let i = 0; i <= 26; i++) {
+			let number = String(i).padStart(4, '0');
+			bravoImages.push(`pngs/level_bravo_${number}.png`);
+		}
+
+		let bravoCurrentIndex = 0;
+		let bravoLooping = false;
+		let loopStart = 8;  // Start of loop (0007)
+		let loopEnd = 19;   // End of loop (0019)
+		let loopDuration = 5000; // 5 seconds
+
+		function changeBravoImage() {
+			if (!bravoLooping && bravoCurrentIndex < bravoImages.length) {
+				// Regular progression of images
+				document.getElementById('bravo-slideshow').src = bravoImages[bravoCurrentIndex];
+				bravoCurrentIndex++;
+
+				// Trigger the loop when we reach image 0007 (index 7)
+				if (bravoCurrentIndex === loopStart) {
+					bravoLooping = true;
+					let loopTime = 0;
+					let loopIndex = loopStart;
+
+					// Loop between 0007 and 0019 for 5 seconds
+					const loopInterval = setInterval(() => {
+						if (loopTime >= loopDuration) {
+							clearInterval(loopInterval); // Stop the loop after 5 seconds
+							bravoLooping = false;
+							bravoCurrentIndex = loopEnd + 1; // Proceed to the next image after 0019
+						} else {
+							document.getElementById('bravo-slideshow').src = bravoImages[loopIndex];
+							loopIndex = loopIndex < loopEnd ? loopIndex + 1 : loopStart; // Loop between 0007-0019
+							loopTime += 1000 / 24; // Update loop time by frame rate
+						}
+					}, 1000 / 24);
+				}
+			} else if (bravoCurrentIndex >= bravoImages.length) {
+				clearInterval(bravoIntervalId); // Stop the interval once all images are shown
+			} else {
+				document.getElementById('bravo-slideshow').src = bravoImages[bravoCurrentIndex];
+			}
+		}
+
+		// Change image every ~41.67 milliseconds (24 frames per second)
+		const bravoIntervalId = setInterval(changeBravoImage, 1000 / 24);
+	</script>
+
+	<script src="bravo.js"></script>
+</body>
+
+</html>

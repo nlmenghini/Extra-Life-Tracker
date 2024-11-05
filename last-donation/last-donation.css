@@ -33,6 +33,12 @@
 	margin-right: 5px;
 }
 
+button {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
 .animate {
 	animation-duration: 500ms;
 	animation-timing-function: cubic-bezier(0.1, 0.7, 1.0, 1.0);

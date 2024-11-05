@@ -1,6 +1,10 @@
 ELT.settings = {
 	// get goal and amount raised a single participant
+<<<<<<< Updated upstream
 	participantId: "523738",
+=======
+	participantId: "535396",
+>>>>>>> Stashed changes
 	// if the header message should be shown
 	showHeader: true,
 	// header message to display at the top of the widget

@@ -1,0 +1,287 @@
+:root {
+	--white: #f4f4f9;
+	--black: #010203;
+}
+*{
+	box-sizing: border-box;
+}
+body {
+	display: flex;
+    align-items: center;
+	justify-content: center;
+	height: 1080px;
+    width: 1920px;
+	text-transform: uppercase;
+	font-family: "NBArchitekRegular", arial, sans-serif;	
+	color: var(--white);
+	font-weight: normal;
+	background-color: #f4f4f9;
+}
+.info-container {
+	width: 100%;
+	height: 50px;
+	display: block;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background-color: #01020350;
+}
+.info-container-2 {
+	width: 592px;
+	height: 50px;
+	display: block;
+	position: fixed;
+	bottom: 50px;
+	left: 0;
+	background-color: #01020350;
+}
+.triangle-element {
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+	position: relative;
+	margin: 10px;
+}
+.triangle-element:after {
+	content: '';
+	background: var(--white);
+	width: 30%;
+	height: 30%;
+	position: absolute;
+	transform: rotate(45deg) translate(71%, 0);
+}
+
+/* ------------------------------------------------------- */
+
+.box {
+	width: 50px;
+	height: 50px;
+	border: 1px solid var(--white);
+	position: absolute;
+	left: 0px;
+	background-color: #01020390;
+}
+
+.team-name {
+	position: absolute;
+	left: 49px;
+	border: 1px solid var(--white);
+	width: 231px;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 20px;
+	font-size: 18px;
+	font-weight: bold;
+	background-color: #01020390;
+}
+
+.el-year {
+	width: 199px;
+	height: 50px;
+	border: 1px solid var(--white);
+	position: absolute;
+	left: 279px;
+	font-size: 18px;
+	line-height: 50px;
+	padding: 0 20px;
+	background-color: #01020390;
+}
+
+.year {
+	position: absolute;
+	left: 477px;
+	border: 1px solid var(--white);
+	width: 116px;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 20px;
+	font-size: 18px;
+	background-color: #01020390;
+}
+
+.time {
+	position: absolute;
+	left: 591px;
+	border: 1px solid var(--white);
+	width: 168px;
+	height: 50px;
+	font-size: 18px;
+	line-height: 50px;
+	padding: 0 20px;
+	background-color: #01020390;
+}
+
+.timer {
+	position: absolute;
+	left: 758px;
+	border: 1px solid var(--white);
+	width: 313px;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 20px;
+	font-size: 18px;
+	background-color: #01020390;
+}
+
+.goal {
+	position: absolute;
+	left: 1070px;
+	border: 1px solid var(--white);
+	width: 157px;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 20px;
+	font-size: 18px;
+	background-color: #01020390;
+}
+#goal{
+	text-align: right;
+}
+
+.raised {
+	position: absolute;
+	left: 1226px;
+	border: 1px solid var(--white);
+	width: 178px;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 20px;
+	font-size: 18px;
+	background-color: #01020390;
+}
+#raised-amount {
+	text-align: right;
+}
+
+.swear-jar {
+	position: absolute;
+	left: 1403px;
+	border: 1px solid var(--white);
+	width: 198px;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 20px;
+	font-size: 18px;
+	background-color: #01020390;
+}
+#swear-amount {
+	text-align: right;
+}
+
+.progress-bar-container {
+	position: absolute;
+	left: 1600px;
+	border: 1px solid var(--white);
+	width: 320px;
+	height: 50px;
+	padding: 0 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: #01020390;
+}
+.progress-header {
+	display: flex;
+}
+.progress-header-text {
+	width: 200px;
+	height: 25px;
+	margin: auto;
+	font-size: 18px;
+}
+.progress-percent {
+	width: 180px;
+	height: 25px;
+	margin: auto;
+	font-size: 18px;
+	text-align: right;
+}
+.progress {
+	display: -ms-flexbox;
+	display: flex;
+	height: 5px;
+	overflow: hidden;
+	font-size: 0.75rem;
+	background-color: #01020399;
+}
+.progress-bar {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-pack: center;
+	justify-content: center;
+	color: #fff;
+	white-space: nowrap;
+	background-color: var(--white);
+	transition: width 0.6s ease;
+}
+
+/* ------------------------------------------------------- */
+
+.donors {
+	position: absolute;
+	bottom: 0px;
+	border: 1px solid var(--white);
+	width: 592px;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 20px;
+	display: flex;
+	font-size: 18px;
+	background-color: #01020390;
+}
+
+.donors-header {
+	font-weight: bold;
+}
+
+.donation {
+	text-align: right;
+	width: 100%;
+}
+
+/* ------------------------------------------------------- */
+
+.incentives {
+	position: absolute;
+	bottom: 1px;
+	left: calc(30% - 1px);
+	border: 1px solid var(--white);
+	width: calc(40% + 1px);
+	height: 50px;
+	line-height: 50px;
+	padding: 0 20px;
+	background-color: #01020390;
+	overflow: hidden;
+}
+
+.incentives-header{
+	font-weight: bold;
+}
+
+.incentives-value {
+	margin: 0 0 0 20px;
+}
+
+.incentives-value {
+	display: inline-block;
+}
+
+.incentives-value span {
+	display: none;
+	animation: fade 5s ease-in-out infinite;
+}
+
+@keyframes fade {
+
+	0%,
+	100% {
+		opacity: 0;
+	}
+
+	10%,
+	90% {
+		opacity: 1;
+	}
+}

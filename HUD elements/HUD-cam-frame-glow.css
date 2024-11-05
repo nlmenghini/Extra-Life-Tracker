@@ -1,0 +1,73 @@
+:root {
+	--card-height: 237px;
+	--card-width: 318px;
+}
+
+body{
+	width: 1920px;
+	height: 1080px;
+	background: #212534;
+	box-sizing: border-box;
+}
+
+@property --rotate {
+	syntax: "<angle>";
+	initial-value: 132deg;
+	inherits: false;
+}
+
+.card {
+	/* background: #191c29; */
+	width: var(--card-width);
+	height: var(--card-height);
+	position: absolute;
+	right: 0px;
+	bottom: 99px;
+	border: 1px solid #f4f4f9;
+}
+
+/* .card::before {
+	content: "";
+	width: 100.5%;
+	height: 101%;
+	background-image: linear-gradient(var(--rotate), #f4f4f9, #646464 43%, #161616);
+	position: absolute;
+	z-index: -1;
+	top: -.5%;
+	left: -.25%;
+	animation: spin 10s linear infinite;
+} */
+
+/* .card::after {
+	position: absolute;
+	content: "";
+	top: calc(var(--card-height) / 6);
+	left: 0;
+	right: 0;
+	z-index: -1;
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+	transform: scale(0.6);
+	filter: blur(calc(var(--card-height) / 6));
+	background-image: linear-gradient(var(--rotate), #f4f4f9, #646464 43%, #161616);
+	opacity: 1;
+	transition: opacity .5s;
+	animation: spin 10s linear infinite;
+} */
+
+@keyframes spin {
+	0% {
+		--rotate: 0deg;
+	}
+
+	100% {
+		--rotate: 360deg;
+	}
+}
+
+
+
+
+
+

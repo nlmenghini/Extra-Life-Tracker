@@ -1,0 +1,143 @@
+<html>
+
+<head>
+	<!-- <link rel="stylesheet" href="../styles.css">-->
+	<link rel="stylesheet" href="Flag_and_donation.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://unpkg.com/currency.js@~1.0.0/dist/currency.min.js"></script>
+	<script src="../elt.js"></script>
+	<script src="Flag_and_donation_settings.js"></script>
+	<title>Flag_and_donation</title>
+</head>
+
+<body>
+	<button id="test-donation-btn">Test Donation</button>
+	<div id="shadow-container">
+		<img id="shadow-slideshow" src="pngs/shadow/boss_flag_intro_shadow_0000.png" alt="shadow-slideshow Image">
+	</div>
+	<div id="flag-container">
+		<img id="flag-slideshow" src="pngs/flag/boss_flag_ANY_expert_0001.png" alt="flag-slideshow Image">
+	</div>
+
+	<!-- Script for Flag slideshow -->
+	<script>
+		const flagImages = [];
+
+		// Populate the images array with 29 image filenames (from 0000 to 0028)
+		for (let i = 0; i <= 28; i++) {
+			let number = String(i).padStart(4, '0');
+			flagImages.push(`pngs/flag/boss_flag_ANY_expert_${number}.png`);
+		}
+
+		let flagCurrentIndex = 0;
+		let flagLooping = false;
+		let flagReversing = false; // To track if we are in reverse mode
+		let loopTime = 0;
+		const flagLoopDuration = 5000; // 5 seconds for looping through 0017 to 0028
+
+		function changeFlagImage() {
+			if (!flagLooping && !reversing) {
+				// Regular progression of images (0000 to 0028)
+				document.getElementById('flag-slideshow').src = flagImages[flagCurrentIndex];
+				flagCurrentIndex++;
+
+				// Check if we've reached the end of the initial sequence
+				if (flagCurrentIndex >= flagImages.length) {
+					flagCurrentIndex = 17; // Set to index 17 (image 0017) to start looping
+					flagLooping = true; // Start looping
+					loopTime = Date.now(); // Start the loop time tracking
+				}
+			} else if (flagLooping) {
+				// Looping between images 0017 and 0028
+				document.getElementById('flag-slideshow').src = flagImages[flagCurrentIndex];
+				flagCurrentIndex++;
+
+				// Reset to image 0017 after displaying image 0028
+				if (flagCurrentIndex > 28) {
+					flagCurrentIndex = 17; // Reset to index 17 (image 0017)
+				}
+
+				// Check if the loop duration (5 seconds) has been reached
+				if (Date.now() - loopTime >= flagLoopDuration) {
+					flagLooping = false; // Stop looping
+					flagReversing = true; // Start reverse mode
+					flagCurrentIndex = 16; // Start reverse from image 0016
+				}
+			} else if (reversing) {
+				// Reverse back through images 0016 to 0000
+				document.getElementById('flag-slideshow').src = flagImages[flagCurrentIndex];
+				flagCurrentIndex--;
+
+				// If we've reached the start of the sequence (image 0000)
+				if (flagCurrentIndex < 0) {
+					clearInterval(flagIntervalId); // Stop the interval when done
+				}
+			}
+		}
+
+		// Change image every 500 milliseconds (24 FPS)
+		const flagIntervalId = setInterval(changeFlagImage, 1000 / 24);
+	</script>
+
+	<!-- Script for shadow slideshow -->
+	<script>
+		const shadowImages = [];
+
+		// Populate the images array with filenames (from 0000 to 0010)
+		for (let i = 0; i <= 10; i++) {
+			let number = String(i).padStart(4, '0');
+			shadowImages.push(`pngs/shadow/boss_flag_intro_shadow_${number}.png`);
+		}
+
+		let shadowCurrentIndex = 0; // Start at image 0000
+		let reversing = false; // To track if we are in reverse mode
+		let loopStartTime = null; // To track the time when looping starts
+		const shadowLoopDuration = 6000; // Loop for 5 seconds
+		const totalImages = shadowImages.length; // Total number of images
+		const shadowIntervalId = setInterval(changeshadowImage, 1000 / 24); // Change image every 500 milliseconds (24 FPS)
+
+		function changeshadowImage() {
+			document.getElementById('shadow-slideshow').src = shadowImages[shadowCurrentIndex];
+
+			if (!reversing) {
+				// Forward progression from 0000 to 0010
+				shadowCurrentIndex++;
+
+				// Check if we've reached 0010
+				if (shadowCurrentIndex > 10) {
+					// Start looping between 0006 and 0010
+					shadowCurrentIndex = 6;
+					loopStartTime = Date.now(); // Record the time when we start looping
+				}
+			} else {
+				// Reverse progression from 0005 back to 0000
+				shadowCurrentIndex--;
+
+				// If we've reached 0000, stop the interval and clear it
+				if (shadowCurrentIndex < 0) {
+					clearInterval(shadowIntervalId); // Stop the interval
+					return; // Exit the function
+				}
+			}
+
+			// If we are looping between 0006 and 0010
+			if (loopStartTime !== null) {
+				// If 5 seconds have passed, start reversing
+				if (Date.now() - loopStartTime >= shadowLoopDuration) {
+					reversing = true; // Start reversing
+					shadowCurrentIndex = 9; // Start reversing from 0009
+					loopStartTime = null; // Reset loop start time
+				} else {
+					// Cycle between 0006 and 0010
+					if (shadowCurrentIndex >= 10) {
+						shadowCurrentIndex = 6; // Reset to 0006 if at 0010
+					}
+				}
+			}
+		}
+	</script>
+
+	<script src="Flag_and_donation.js"></script>
+</body>
+
+</html>

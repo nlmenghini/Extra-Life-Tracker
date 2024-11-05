@@ -1,0 +1,49 @@
+body {
+	width: 1920px;
+	height: 1080px;
+	background: #212534;
+	box-sizing: border-box;
+}
+
+@property --rotate {
+	syntax: "<angle>";
+	initial-value: 132deg;
+	inherits: false;
+}
+
+.card {
+	width: 480px;
+	height: 270px;
+	position: absolute;
+	right: 22px;
+	bottom: 116px;
+	border: 1px solid #f4f4f9;
+}
+
+.card-2 {
+	width: 480px;
+	height: 270px;
+	position: absolute;
+	right: 22px;
+	bottom: 406px;
+	border: 1px solid #f4f4f9;
+} 
+
+.card-3 {
+	width: 480px;
+	height: 270px;
+	position: absolute;
+	right: 22px;
+	bottom: 696px;
+	border: 1px solid #f4f4f9;
+}
+
+
+.card-4 {
+	width: 1376px;
+	height: 774px;
+	position: absolute;
+	left: 22px;
+	top: 152px;
+	border: 1px solid #f4f4f9;
+}

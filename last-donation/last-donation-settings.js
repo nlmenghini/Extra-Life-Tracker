@@ -5,8 +5,13 @@ ELT.settings = {
 	animationPauseMS: 5000,
 	// direction of animation
 	animateTo: 'left',
+<<<<<<< Updated upstream
 	// get donation information for these participants
 	participantIds: ["523738"], 
+=======
+	// get donation information for this team
+	participantIds: [535396],
+>>>>>>> Stashed changes
 	// name to show if the donor name is null
 	unknownDonorName: "Mysterious Hero",
 	// Message displayed when donation amount it private to the donatee

@@ -1,0 +1,124 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="../styles.css">
+	<link rel="stylesheet" href="combo-page-live.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+	<script src="https://unpkg.com/currency.js@~1.0.0/dist/currency.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/numeral@2.0.6/numeral.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
+	<script src='https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js'></script>
+	<script src="../elt.js"></script>
+	<script src="combo-page-live-settings.js"></script>
+</head>
+
+<body>
+	<div class="info-container-2">
+		<div class="donors">
+			<span id="donors-header" class="donors-header">DONORS</span>
+			<span id="donation" class="donation"></span>
+		</div>
+
+		<script src="combo-page-live.js"></script>
+</body>
+<script>
+	Vue.filter(
+		'formatMoney',
+		(value) => {
+			return numeral(value).format('$0,0.00');
+		}
+	);
+
+	var v = new Vue({
+		data: {
+			count: 0,
+			donation: null,
+			donations: [],
+			entity: {
+				etag: '',
+				lastDonation: new Date().toISOString()
+			}
+		},
+		el: '#progress',
+		methods: {
+			refreshDonations() {
+				var ld = new Date(this.entity.lastDonation);
+
+				axios.get(window.config.api + window.config.resource + '/' + window.config.resourceID + '/donations' + (window.config.api.indexOf('?') >= 0 ? '&' : '?') + 'where=' + encodeURIComponent('createdDateUTC > ' + ld.toISOString()) + '&orderBy=' + encodeURIComponent('createdDateUTC ASC'))
+					.then((response) => {
+						response.data.forEach((dx) => {
+							var createdDate = new Date(dx.createdDateUTC);
+
+							if (createdDate > ld) {
+								this.donations.push(dx);
+								this.entity.lastDonation = dx.createdDateUTC;
+							}
+						});
+					});
+			},
+			refreshEntity() {
+				axios.get(window.config.api + window.config.resource + '/' + window.config.resourceID, { headers: { 'if-none-match': this.entity.etag } })
+					.then((response) => {
+						// success
+						var e = Object.assign({}, this.entity, response.data);
+						e.etag = response.headers.etag;
+
+						this.entity = e;
+
+						if (window.config.streamingThermometer.showDonations) {
+							this.refreshDonations();
+						}
+					})
+					.catch((error) => { });
+			}
+		}
+	});
+
+	setInterval(
+		() => {
+			v.refreshEntity();
+		},
+		15000
+	);
+
+	if (window.config.streamingThermometer.showDonations) {
+		setInterval(
+			() => {
+				if (v.donations.length) {
+					v.donation = v.donations.shift();
+					setTimeout(
+						() => { v.donation = null; },
+						5000
+					);
+				}
+			},
+			7000
+		);
+	}
+
+	v.refreshEntity();
+</script>
+<script>
+	$(document).ready(function () {
+		var $spans = $('.incentives-value span');
+		var currentSpanIndex = 0;
+
+		function showNextSpan() {
+			$spans.eq(currentSpanIndex).fadeIn(500, function () {
+				setTimeout(function () {
+					$spans.eq(currentSpanIndex).fadeOut(500, function () {
+						currentSpanIndex = (currentSpanIndex + 1) % $spans.length;
+						showNextSpan();
+					});
+				}, 4000);
+			});
+		}
+
+		showNextSpan();
+	});
+</script>
+
+</html>
